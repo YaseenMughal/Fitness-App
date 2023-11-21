@@ -49,3 +49,12 @@ spanText() {
     ),
   );
 }
+
+textField(String text) {
+  return TextField(
+    decoration: InputDecoration(
+        hintText: text,
+        hintStyle: TextStyle(color: Colors.grey),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
+  );
+}

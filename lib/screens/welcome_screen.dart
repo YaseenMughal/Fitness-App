@@ -1,5 +1,6 @@
 import 'package:fitness_app/screens/login_screen.dart';
 import 'package:fitness_app/screens/trynow_screen.dart';
+import 'package:fitness_app/utils/button_utils.dart';
 import 'package:fitness_app/utils/text_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,50 +43,19 @@ class _WelcomeViewState extends State<WelcomeView> {
                   bottomText("Welcome",
                       "Train and live the new experience of\nexercising at home"),
                   SizedBox(height: Get.height * .02),
-                  TextButton(
-                    onPressed: () => Get.to(TryNowScreen()),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: kFirstColor,
-                      ),
-                      height: 50,
-                      width: Get.width * 0.7,
-                      child: const Center(
-                        child: Text(
-                          "Try Now",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "Poppin",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                    ),
+                  textbutton(
+                    () => Get.to(TryNowScreen()),
+                    25,
+                    kFirstColor,
+                    null,
+                    "Try Now",
                   ),
-                  TextButton(
-                    onPressed: () => Get.to(LoginScreen()),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: Colors.transparent,
-                        border: Border.all(width: 2, color: Colors.white),
-                      ),
-                      height: 50,
-                      width: Get.width * 0.7,
-                      child: const Center(
-                        child: Text(
-                          "Login",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "Poppin",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                    ),
+                  textbutton(
+                    () => Get.to(LoginScreen()),
+                    25,
+                    Colors.transparent,
+                    Border.all(width: 2, color: Colors.white),
+                    "Login",
                   ),
                 ],
               ),

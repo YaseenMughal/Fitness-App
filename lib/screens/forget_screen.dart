@@ -17,123 +17,90 @@ class _ForgetScreenState extends State<ForgetScreen> {
     return Scaffold(
       backgroundColor: kThirdColor,
       body: SingleChildScrollView(
-          child: Column(
-        children: [
-          Stack(
-            children: [
-              Container(
-                height: Get.height * .5,
-                width: Get.width,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/black/5.jpg"),
-                      fit: BoxFit.cover),
-                ),
-              ),
-              Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                      colors: [
-                        kThirdColor,
-                        Colors.transparent,
-                      ]),
-                ),
-                height: Get.height * 0.55,
-                width: Get.width,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 20.0),
-                  child: Column(
-                    children: [
-                      spanText(),
-                      Spacer(),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Sign In",
-                              style: styLe(Get.width * .09, Colors.white,
-                                  FontWeight.w600),
-                            ),
-                            Text(
-                              "Train and live the new experience of \nexercising",
-                              style: styLe(Get.width * .036, Colors.white,
-                                  FontWeight.w300),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Column(
+        child: Column(
+          children: [
+            Stack(
               children: [
-                const TextField(
-                  decoration: InputDecoration(
-                      hintText: "Email",
-                      hintStyle: TextStyle(color: Colors.grey),
-                      border: OutlineInputBorder()),
-                ),
-                SizedBox(height: Get.height * .05),
-                TextButton(
-                  onPressed: () {},
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: kFirstColor,
-                    ),
-                    height: 50,
-                    width: Get.width * 0.7,
-                    child: const Center(
-                      child: Text(
-                        "Submit",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: "Poppin",
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ),
+                Container(
+                  height: Get.height * .5,
+                  width: Get.width,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/images/black/5.jpg"),
+                        fit: BoxFit.cover),
                   ),
                 ),
-                TextButton(
-                  onPressed: () => Get.back(),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.transparent,
-                      border: Border.all(width: 2, color: kFirstColor),
-                    ),
-                    height: 50,
-                    width: Get.width * 0.7,
-                    child: const Center(
-                      child: Text(
-                        "Cancel",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: "Poppin",
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
+                Container(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                        colors: [
+                          kThirdColor,
+                          Colors.transparent,
+                        ]),
+                  ),
+                  height: Get.height * 0.55,
+                  width: Get.width,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 20.0),
+                    child: Column(
+                      children: [
+                        spanText(),
+                        Spacer(),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Forget Password",
+                                style: styLe(Get.width * .08, Colors.white,
+                                    FontWeight.w600),
+                              ),
+                              Text(
+                                "Train and live the new experience of \nexercising",
+                                style: styLe(
+                                    Get.width * .035,
+                                    Colors.white.withOpacity(0.6),
+                                    FontWeight.w300),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),
               ],
             ),
-          )
-        ],
-      )),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Column(
+                children: [
+                  textField("Email"),
+                  SizedBox(height: Get.height * .05),
+                  textbutton(
+                    () {},
+                    15,
+                    kFirstColor,
+                    null,
+                    "Submit",
+                  ),
+                  textbutton(
+                    () => Get.back(),
+                    15,
+                    Colors.transparent,
+                    Border.all(width: 2, color: kFirstColor),
+                    "Cancel",
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

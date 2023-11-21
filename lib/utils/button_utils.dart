@@ -72,3 +72,21 @@ Widget trainingOptionBox(
     ),
   );
 }
+
+textbutton(ontap, double radiusSize, color, BoxBorder? border, text) {
+  return TextButton(
+    onPressed: ontap,
+    child: Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(radiusSize),
+        border: border,
+        color: color,
+      ),
+      height: 50,
+      width: Get.width * 0.7,
+      child: Center(
+        child: Text(text, style: styLe(18, Colors.white, FontWeight.w400)),
+      ),
+    ),
+  );
+}
