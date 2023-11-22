@@ -5,7 +5,8 @@ import '../utils/color_utils.dart';
 import '../utils/text_utils.dart';
 
 class ForgetScreen extends StatefulWidget {
-  const ForgetScreen({super.key});
+  TextEditingController controller;
+  ForgetScreen({super.key, required this.controller});
 
   @override
   State<ForgetScreen> createState() => _ForgetScreenState();
@@ -21,15 +22,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
           children: [
             Stack(
               children: [
-                Container(
-                  height: Get.height * .5,
-                  width: Get.width,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/images/black/5.jpg"),
-                        fit: BoxFit.cover),
-                  ),
-                ),
+                backgroundImage("assets/images/black/5.jpg"),
                 Container(
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -79,7 +72,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Column(
                 children: [
-                  textField("Email"),
+                  textField("Email", widget.controller),
                   SizedBox(height: Get.height * .05),
                   textbutton(
                     () {},

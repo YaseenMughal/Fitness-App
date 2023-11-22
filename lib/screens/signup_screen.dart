@@ -13,6 +13,11 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  TextEditingController tfcname = TextEditingController();
+  TextEditingController tfcemail = TextEditingController();
+  TextEditingController tfcphone = TextEditingController();
+  TextEditingController tfcpassword = TextEditingController();
+  TextEditingController tfcconfirmpassword = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,15 +27,7 @@ class _SignupScreenState extends State<SignupScreen> {
         children: [
           Stack(
             children: [
-              Container(
-                height: Get.height * .5,
-                width: Get.width,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/black/4.jpg"),
-                      fit: BoxFit.cover),
-                ),
-              ),
+              backgroundImage("assets/images/black/4.jpg"),
               Container(
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
@@ -80,15 +77,15 @@ class _SignupScreenState extends State<SignupScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
               children: [
-                textField("Name"),
+                textField("Name", tfcname),
                 SizedBox(height: Get.height * .01),
-                textField("Email"),
+                textField("Email", tfcemail),
                 SizedBox(height: Get.height * .01),
-                textField("Phone"),
+                textField("Phone", tfcphone),
                 SizedBox(height: Get.height * .01),
-                textField("Password"),
+                textField("Password", tfcpassword),
                 SizedBox(height: Get.height * .01),
-                textField("Confirm Password"),
+                textField("Confirm Password", tfcconfirmpassword),
                 SizedBox(height: Get.height * .02),
                 Align(
                   alignment: Alignment.bottomLeft,

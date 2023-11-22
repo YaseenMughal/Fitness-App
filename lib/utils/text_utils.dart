@@ -50,11 +50,37 @@ spanText() {
   );
 }
 
-textField(String text) {
+spanbottomtxt(double size, txt1, txt2) {
+  return RichText(
+    text: TextSpan(
+      text: '$txt1\t',
+      style: styLe(size, kFirstColor, FontWeight.bold),
+      children: <TextSpan>[
+        TextSpan(
+          text: txt2,
+          style: styLe(size, Colors.white, FontWeight.bold),
+        ),
+      ],
+    ),
+  );
+}
+
+textField(String text, TextEditingController controller) {
   return TextField(
+    controller: controller,
     decoration: InputDecoration(
-        hintText: text,
-        hintStyle: TextStyle(color: Colors.grey),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
+      hintText: text,
+      hintStyle: TextStyle(color: Colors.grey),
+    ),
+  );
+}
+
+backgroundImage(image) {
+  return Container(
+    height: Get.height * .5,
+    width: Get.width,
+    decoration: BoxDecoration(
+      image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
+    ),
   );
 }

@@ -1,3 +1,4 @@
+import 'package:fitness_app/screens/dashboard_screen.dart';
 import 'package:fitness_app/screens/signup_screen.dart';
 import 'package:fitness_app/utils/button_utils.dart';
 import 'package:fitness_app/utils/color_utils.dart';
@@ -15,6 +16,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController tfcemail = TextEditingController();
+  TextEditingController tfcpassword = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,15 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           Stack(
             children: [
-              Container(
-                height: Get.height * .5,
-                width: Get.width,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/black/12.jpg"),
-                      fit: BoxFit.cover),
-                ),
-              ),
+              backgroundImage("assets/images/black/12.jpg"),
               Container(
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
@@ -80,13 +76,13 @@ class _LoginScreenState extends State<LoginScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
               children: [
-                textField("Email"),
+                textField("Email", tfcemail),
                 SizedBox(height: Get.height * .01),
-                textField("Password"),
+                textField("Password", tfcpassword),
                 Align(
                   alignment: Alignment.bottomRight,
                   child: TextButton(
-                    onPressed: () => Get.to(ForgetScreen()),
+                    onPressed: () => Get.to(ForgetScreen(controller: tfcemail)),
                     child: Text(
                       "Forget your passwod?",
                       style: styLe(12, Colors.white, FontWeight.w300),
@@ -95,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: Get.height * .02),
                 textbutton(
-                  () {},
+                  () => Get.to(DashboardScreen()),
                   15,
                   kFirstColor,
                   null,
