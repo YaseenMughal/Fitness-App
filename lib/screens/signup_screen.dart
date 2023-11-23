@@ -1,3 +1,5 @@
+import 'package:fitness_app/screens/dashboard_screen.dart';
+import 'package:fitness_app/utils/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,6 +20,8 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController tfcphone = TextEditingController();
   TextEditingController tfcpassword = TextEditingController();
   TextEditingController tfcconfirmpassword = TextEditingController();
+
+  final UserController userController = Get.put(UserController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,7 +100,14 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 SizedBox(height: Get.height * .03),
                 textbutton(
-                  () {},
+                  () {
+                    userController.updateUser(
+                      name: tfcname.text,
+                      email: tfcemail.text,
+                      phone: tfcphone.text,
+                    );
+                    Get.to(() => DashboardScreen());
+                  },
                   15,
                   kFirstColor,
                   null,

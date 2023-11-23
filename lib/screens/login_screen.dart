@@ -1,11 +1,9 @@
-import 'package:fitness_app/screens/dashboard_screen.dart';
 import 'package:fitness_app/screens/signup_screen.dart';
 import 'package:fitness_app/utils/button_utils.dart';
 import 'package:fitness_app/utils/color_utils.dart';
 import 'package:fitness_app/utils/text_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'forget_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -91,7 +89,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: Get.height * .02),
                 textbutton(
-                  () => Get.to(DashboardScreen()),
+                  () {},
+                  // () => Get.to(
+                  //   // DashboardScreen(
+                  //   //   mailController: tfcemail,
+                  //   //   numController: Null,
+                  //   // ),
+                  // ),
                   15,
                   kFirstColor,
                   null,

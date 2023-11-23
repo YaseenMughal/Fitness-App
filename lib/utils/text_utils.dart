@@ -1,4 +1,3 @@
-import 'package:fitness_app/utils/button_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'color_utils.dart';
@@ -57,7 +56,7 @@ spanbottomtxt(double size, txt1, txt2) {
       style: styLe(size, kFirstColor, FontWeight.bold),
       children: <TextSpan>[
         TextSpan(
-          text: txt2,
+          text: ' $txt2',
           style: styLe(size, Colors.white, FontWeight.bold),
         ),
       ],
@@ -72,6 +71,45 @@ textField(String text, TextEditingController controller) {
       hintText: text,
       hintStyle: TextStyle(color: Colors.grey),
     ),
+  );
+}
+
+searchField(TextEditingController controller) {
+  return TextField(
+    style: styLe(13, Colors.grey, FontWeight.w400),
+    controller: controller,
+    decoration: InputDecoration(
+        contentPadding:
+            const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
+        hintText: "Search Workout..",
+        hintStyle: TextStyle(color: Colors.white, letterSpacing: 1),
+        fillColor: kSecondColor,
+        filled: true,
+        suffixIcon: Icon(
+          Icons.search,
+          color: Colors.white,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        focusedBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(30.0)),
+          borderSide: BorderSide(width: 2, color: kThirdColor),
+        ),
+        enabledBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(30.0)),
+          borderSide:
+              BorderSide(width: 0.1, color: Color.fromRGBO(130, 129, 129, 1)),
+        )),
+  );
+}
+
+styLe(double fontsize, var color, var fontweight) {
+  return TextStyle(
+    fontSize: fontsize,
+    color: color,
+    fontFamily: "Poppin",
+    fontWeight: fontweight,
   );
 }
 

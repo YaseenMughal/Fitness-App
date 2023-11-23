@@ -5,7 +5,7 @@ import '../utils/color_utils.dart';
 import '../utils/text_utils.dart';
 
 class ForgetScreen extends StatefulWidget {
-  TextEditingController controller;
+  final TextEditingController controller;
   ForgetScreen({super.key, required this.controller});
 
   @override

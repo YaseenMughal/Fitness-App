@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         primaryColor: Colors.blue,
         hintColor: Colors.white,
-        textTheme: const TextTheme(subtitle1: TextStyle(color: Colors.white)),
+        textTheme: const TextTheme(titleMedium: TextStyle(color: Colors.white)),
       ),
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.cupertino,
