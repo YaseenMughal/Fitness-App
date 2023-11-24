@@ -5,6 +5,8 @@ import 'package:fitness_app/utils/text_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../utils/workout_list.dart';
+
 class DashboardScreen extends StatefulWidget {
   DashboardScreen({
     super.key,
@@ -17,12 +19,6 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   final UserController userController = Get.find();
   TextEditingController tfcsearch = TextEditingController();
-  List<String> workoutName = [
-    "Popular",
-    "Hard Workout",
-    "Full Body",
-    "Cross-fit"
-  ];
 
   int selectedTab = 0;
 
@@ -116,7 +112,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   width: double.infinity,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: workoutName.length,
+                    itemCount: tabNames.length,
                     itemBuilder: (context, index) {
                       bool isSelected = index == selectedTab;
                       return Padding(
@@ -144,7 +140,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   left: 10.0, right: 10.0),
                               child: Center(
                                 child: Text(
-                                  workoutName[index],
+                                  tabNames[index],
                                   style: styLe(
                                       15, Colors.grey[400], FontWeight.w500),
                                 ),
@@ -157,10 +153,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                 ),
                 SizedBox(height: Get.height * .015),
-                Text(
-                  "Popular Workout",
-                  style: styLe(22, Colors.white, FontWeight.w700),
-                ),
+                typesName("Popular Workout"),
                 SizedBox(height: Get.height * .02),
                 // image List
                 Container(
@@ -206,10 +199,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                 ),
                 SizedBox(height: Get.height * .015),
-                Text(
-                  "Basic Workout",
-                  style: styLe(22, Colors.white, FontWeight.w700),
-                ),
+                typesName("Basic Workout"),
                 SizedBox(height: Get.height * .02),
                 // image List
                 Container(
@@ -262,42 +252,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
       )),
     );
   }
-
-  List<Map> popularWorkout = [
-    {
-      'name': 'Dribble Exercises',
-      'productImage': 'assets/images/black/16.jpg',
-    },
-    {
-      'name': 'Combine Exercises',
-      'productImage': 'assets/images/black/12.jpg',
-    },
-    {
-      'name': 'Push-Up Exercises',
-      'productImage': 'assets/images/black/1.jpg',
-    },
-    {
-      'name': 'Burble-Up Exercises',
-      'productImage': 'assets/images/black/6.jpg'
-    },
-  ];
 }
 
-List<Map> basicWorkout = [
-  {
-    'name': 'Chain Exercises',
-    'productImage': 'assets/images/black/7.jpg',
-  },
-  {
-    'name': 'Rope Exercises',
-    'productImage': 'assets/images/black/18.jpg',
-  },
-  {
-    'name': 'Shoulder Exercises',
-    'productImage': 'assets/images/black/8.jpg',
-  },
-  {
-    'name': 'Abs Exercises',
-    'productImage': 'assets/images/black/14.jpg',
-  },
-];
+typesName(String text) {
+  return Text(
+    text,
+    style: styLe(22, Colors.white, FontWeight.w700),
+  );
+}

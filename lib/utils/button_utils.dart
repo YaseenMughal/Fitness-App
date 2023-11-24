@@ -89,12 +89,9 @@ class ProfileButton extends StatefulWidget {
   final String email;
   final String phone;
 
-  ProfileButton({
-    Key? key,
-    required this.name,
-    required this.email,
-    required this.phone,
-  }) : super(key: key);
+  ProfileButton(
+      {Key? key, required this.name, required this.email, required this.phone})
+      : super(key: key);
 
   @override
   State<ProfileButton> createState() => _ProfileButtonState();
@@ -161,7 +158,7 @@ class _ProfileButtonState extends State<ProfileButton> {
               children: [
                 // top box
                 Container(
-                  height: Get.height * .15,
+                  height: Get.height * .12,
                   width: double.infinity,
                   decoration: const BoxDecoration(
                       color: kSecondColor,
@@ -169,7 +166,8 @@ class _ProfileButtonState extends State<ProfileButton> {
                           bottomLeft: Radius.circular(18),
                           bottomRight: Radius.circular(18))),
                   child: Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding:
+                        const EdgeInsets.only(top: 20, left: 10, right: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -287,12 +285,31 @@ class _ProfileButtonState extends State<ProfileButton> {
                       itemCount: userTitle2.length,
                       itemBuilder: (context, index) {
                         return ListTile(
-                          title: Text(userTitle2[index]),
-                          leading: userLeading2[index],
-                          trailing: IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.arrow_forward_ios)),
-                        );
+                            title: Text(userTitle2[index]),
+                            leading: userLeading2[index],
+                            trailing: index == 0
+                                ? IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(Icons.arrow_forward_ios,
+                                        color: Colors.grey),
+                                  )
+                                : index == 1
+                                    ? IconButton(
+                                        onPressed: () {
+                                          Get.to(() => AgreementScreen());
+                                          //  Get.to(() => DemoPages(
+                                          //   text: widget.name, child: child))
+                                        },
+                                        icon: Icon(Icons.arrow_forward_ios,
+                                            color: Colors.grey),
+                                      )
+                                    : index == 2
+                                        ? IconButton(
+                                            onPressed: () {},
+                                            icon: Icon(Icons.arrow_forward_ios,
+                                                color: Colors.grey),
+                                          )
+                                        : null);
                       },
                     ),
                   ),
@@ -321,4 +338,101 @@ class _ProfileButtonState extends State<ProfileButton> {
           )),
     );
   }
+}
+
+class AgreementScreen extends StatefulWidget {
+  // final String text;
+  // final Widget? child;
+  const AgreementScreen({
+    super.key,
+    // required this.text,
+    // required this.child,
+  });
+
+  @override
+  State<AgreementScreen> createState() => _AgreementScreenState();
+}
+
+class _AgreementScreenState extends State<AgreementScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: appbarBox("User Agreement"),
+        backgroundColor: kThirdColor,
+        body: Column(
+          children: [
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(18.0),
+                    color: kSecondColor),
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        leading: Icon(Icons.person_2_outlined),
+                        title: Text("Privacy Policy"),
+                        trailing: InkWell(
+                            onTap: () {},
+                            child: Icon(Icons.arrow_forward_ios,
+                                color: Colors.grey)),
+                      ),
+                      Divider(),
+                      ListTile(
+                        leading: Icon(Icons.contact_page_outlined),
+                        title: Text("Terms & Conditions"),
+                        trailing: InkWell(
+                            onTap: () {},
+                            child: Icon(Icons.arrow_forward_ios,
+                                color: Colors.grey)),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ));
+  }
+}
+
+appbarBox(String text) {
+  return AppBar(
+    title: Text(text, style: styLe(20, kFirstColor, FontWeight.w500)),
+    centerTitle: true,
+    toolbarHeight: 65,
+    backgroundColor: kSecondColor,
+    shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(25), bottomRight: Radius.circular(25))),
+    leading: InkWell(
+      onTap: () {},
+      child: Padding(
+        padding: const EdgeInsets.only(left: 12, top: 9.0, bottom: 9.0),
+        child: Container(
+          width: 60,
+          height: 50,
+          decoration: BoxDecoration(
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: Colors.white,
+              width: 1.0,
+            ),
+          ),
+          child: Center(
+            child: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: const Icon(Icons.arrow_back_ios_new)),
+          ),
+        ),
+      ),
+    ),
+  );
 }
