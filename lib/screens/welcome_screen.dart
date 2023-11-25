@@ -33,25 +33,27 @@ class _WelcomeViewState extends State<WelcomeView> {
             width: Get.width,
             color: kThirdColor.withOpacity(0.3),
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   spanText(),
                   Spacer(),
-                  bottomText("Welcome",
-                      "Train and live the new experience of\nexercising at home"),
+                  bottomText("Welcome", "Train and live the new experience of\nexercising at home"),
                   SizedBox(height: Get.height * .02),
                   textbutton(
-                    () => Get.to(TryNowScreen()),
+                    () {
+                      Get.to(() => TryNowScreen());
+                    },
                     25,
                     kFirstColor,
                     null,
                     "Try Now",
                   ),
                   textbutton(
-                    () => Get.to(LoginScreen()),
+                    () {
+                      Get.to(() => LoginScreen());
+                    },
                     25,
                     Colors.transparent,
                     Border.all(width: 2, color: Colors.white),

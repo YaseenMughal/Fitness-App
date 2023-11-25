@@ -45,8 +45,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 height: Get.height * 0.55,
                 width: Get.width,
                 child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 20.0, right: 20.0, top: 25.0, bottom: 15.0),
+                  padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 25.0, bottom: 15.0),
                   child: Column(
                     children: [
                       Row(
@@ -69,8 +68,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               decoration: BoxDecoration(
                                 color: const Color(0xff7c94b6),
                                 image: const DecorationImage(
-                                  image:
-                                      AssetImage("assets/images/black/9.jpg"),
+                                  image: AssetImage("assets/images/black/9.jpg"),
                                   fit: BoxFit.cover,
                                 ),
                                 shape: BoxShape.circle,
@@ -129,20 +127,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20.0),
                               border: Border.all(
-                                color: isSelected
-                                    ? kFirstColor
-                                    : Colors.transparent,
+                                color: isSelected ? kFirstColor : Colors.transparent,
                                 width: 1.0,
                               ),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 10.0, right: 10.0),
+                              padding: const EdgeInsets.only(left: 10.0, right: 10.0),
                               child: Center(
                                 child: Text(
                                   tabNames[index],
-                                  style: styLe(
-                                      15, Colors.grey[400], FontWeight.w500),
+                                  style: styLe(15, Colors.grey[400], FontWeight.w500),
                                 ),
                               ),
                             ),

@@ -1,3 +1,4 @@
+import 'package:fitness_app/screens/dashboard_screen.dart';
 import 'package:fitness_app/screens/signup_screen.dart';
 import 'package:fitness_app/utils/button_utils.dart';
 import 'package:fitness_app/utils/color_utils.dart';
@@ -29,19 +30,15 @@ class _LoginScreenState extends State<LoginScreen> {
               backgroundImage("assets/images/black/12.jpg"),
               Container(
                 decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                      colors: [
-                        kThirdColor,
-                        Colors.transparent,
-                      ]),
+                  gradient: LinearGradient(begin: Alignment.bottomCenter, end: Alignment.topCenter, colors: [
+                    kThirdColor,
+                    Colors.transparent,
+                  ]),
                 ),
                 height: Get.height * 0.55,
                 width: Get.width,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 20.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                   child: Column(
                     children: [
                       spanText(),
@@ -53,13 +50,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             Text(
                               "Sign In",
-                              style: styLe(Get.width * .09, Colors.white,
-                                  FontWeight.w600),
+                              style: styLe(Get.width * .09, Colors.white, FontWeight.w600),
                             ),
                             Text(
                               "Train and live the new experience of \nexercising",
-                              style: styLe(Get.width * .036, Colors.white,
-                                  FontWeight.w300),
+                              style: styLe(Get.width * .036, Colors.white, FontWeight.w300),
                             )
                           ],
                         ),
@@ -89,20 +84,18 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: Get.height * .02),
                 textbutton(
-                  () {},
-                  // () => Get.to(
-                  //   // DashboardScreen(
-                  //   //   mailController: tfcemail,
-                  //   //   numController: Null,
-                  //   // ),
-                  // ),
+                  () {
+                    // Get.to(() => DashboardScreen());
+                  },
                   15,
                   kFirstColor,
                   null,
                   "Login",
                 ),
                 textbutton(
-                  () => Get.to(SignupScreen()),
+                  () {
+                    Get.to(() => SignupScreen());
+                  },
                   15,
                   Colors.transparent,
                   Border.all(width: 2, color: kFirstColor),
